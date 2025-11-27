@@ -1,0 +1,326 @@
+@font-face {
+    font-family: 'Rough Typewriter';
+    src: url('rough_typewriter.otf') format('opentype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', 'Monaco', 'Consolas', monospace;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    padding-bottom: 520px;
+    /* Add space for fixed image and music player */
+}
+
+.content {
+    text-align: center;
+    max-width: 600px;
+}
+
+.name {
+    font-family: 'Rough Typewriter', 'Courier New', monospace;
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    font-family: 'Courier New', 'Monaco', 'Consolas', monospace;
+    font-size: 1rem;
+    color: #000000;
+    opacity: 0.3;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.social-links {
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+.link {
+    color: #0066cc;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.separator {
+    margin: 0 8px;
+    color: #666;
+}
+
+.referral-section {
+    margin-top: 20px;
+}
+
+.section-title {
+    font-size: 0.9rem;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.referral-item {
+    font-size: 0.9rem;
+    color: #0066cc;
+    margin-bottom: 5px;
+}
+
+.music-player-container {
+    margin-bottom: 20px;
+    z-index: 10;
+    padding: 0;
+}
+
+.music-player {
+    background: linear-gradient(145deg, #d0d0d0, #808080);
+    border: 3px solid #999;
+    border-radius: 8px;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: Arial, sans-serif;
+    width: 450px;
+    max-width: 90vw;
+    box-shadow:
+        inset 0 3px 6px rgba(255, 255, 255, 0.4),
+        inset 0 -3px 6px rgba(0, 0, 0, 0.3),
+        inset 0 1px 2px rgba(255, 255, 255, 0.6),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.4),
+        0 4px 8px rgba(0, 0, 0, 0.4),
+        0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.player-display {
+    background: linear-gradient(145deg, #0a0a0a, #2a2a2a);
+    border: 1px solid #333;
+    border-radius: 4px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    min-height: 32px;
+    box-shadow:
+        inset 0 2px 4px rgba(0, 0, 0, 0.6),
+        inset 0 -1px 2px rgba(255, 255, 255, 0.1),
+        inset 0 1px 1px rgba(0, 0, 0, 0.8);
+}
+
+.pause-btn {
+    background: linear-gradient(145deg, #e0e0e0, #909090);
+    border: 2px solid #999;
+    border-radius: 4px;
+    width: 28px;
+    height: 28px;
+    font-size: 0.9rem;
+    color: #000;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1;
+    box-shadow:
+        inset 0 3px 6px rgba(255, 255, 255, 0.5),
+        inset 0 -3px 6px rgba(0, 0, 0, 0.3),
+        inset 0 1px 2px rgba(255, 255, 255, 0.7),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.4),
+        0 2px 4px rgba(0, 0, 0, 0.3),
+        0 1px 1px rgba(0, 0, 0, 0.2);
+    transition: all 0.1s ease;
+    font-weight: bold;
+}
+
+.pause-btn:hover {
+    background: linear-gradient(145deg, #f0f0f0, #a0a0a0);
+    box-shadow:
+        inset 0 3px 6px rgba(255, 255, 255, 0.6),
+        inset 0 -3px 6px rgba(0, 0, 0, 0.2),
+        inset 0 1px 2px rgba(255, 255, 255, 0.8),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.3),
+        0 2px 4px rgba(0, 0, 0, 0.2),
+        0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.pause-btn:active {
+    box-shadow:
+        inset 0 4px 8px rgba(0, 0, 0, 0.4),
+        inset 0 -2px 4px rgba(255, 255, 255, 0.2),
+        inset 0 2px 4px rgba(0, 0, 0, 0.6),
+        inset 0 -1px 2px rgba(255, 255, 255, 0.3),
+        0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.track-info {
+    flex: 1;
+    color: white;
+}
+
+.track-name {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 2px;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.artist-name {
+    font-size: 0.75rem;
+    color: white;
+    font-weight: normal;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.visualizer {
+    display: flex;
+    align-items: end;
+    gap: 2px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+.bar {
+    width: 3px;
+    background: #bfbfbf;
+    border-radius: 1px;
+    height: 4px;
+    /* Default static height */
+    transition: height 0.2s ease;
+}
+
+.visualizer.playing .bar {
+    animation: equalizer 1s ease-in-out infinite;
+}
+
+/* Individual animation delays and durations for organic look */
+.visualizer.playing .bar:nth-child(1) {
+    animation-duration: 1.0s;
+    animation-delay: 0.0s;
+}
+
+.visualizer.playing .bar:nth-child(2) {
+    animation-duration: 1.2s;
+    animation-delay: 0.1s;
+}
+
+.visualizer.playing .bar:nth-child(3) {
+    animation-duration: 0.8s;
+    animation-delay: 0.2s;
+}
+
+.visualizer.playing .bar:nth-child(4) {
+    animation-duration: 1.1s;
+    animation-delay: 0.3s;
+}
+
+.visualizer.playing .bar:nth-child(5) {
+    animation-duration: 0.9s;
+    animation-delay: 0.4s;
+}
+
+.visualizer.playing .bar:nth-child(6) {
+    animation-duration: 1.3s;
+    animation-delay: 0.5s;
+}
+
+.visualizer.playing .bar:nth-child(7) {
+    animation-duration: 1.0s;
+    animation-delay: 0.6s;
+}
+
+.visualizer.playing .bar:nth-child(8) {
+    animation-duration: 1.2s;
+    animation-delay: 0.7s;
+}
+
+@keyframes equalizer {
+    0% {
+        height: 4px;
+    }
+
+    25% {
+        height: 16px;
+    }
+
+    50% {
+        height: 8px;
+    }
+
+    75% {
+        height: 20px;
+    }
+
+    100% {
+        height: 4px;
+    }
+}
+
+
+.image-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #f5f5f5;
+    padding: 0;
+    margin: 0;
+    z-index: 10;
+}
+
+.portfolio-image {
+    max-width: 100%;
+    height: auto;
+    max-height: 600px;
+    border-radius: 8px;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .name {
+        font-size: 2rem;
+    }
+
+    .social-links {
+        font-size: 0.9rem;
+    }
+
+    .link,
+    .email,
+    .patreon .link {
+        font-size: 0.9rem;
+    }
+}

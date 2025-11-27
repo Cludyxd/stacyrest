@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stacy</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="content">
+            <h1 class="name">stacy</h1>
+            <div class="subtitle">web developer, photobasher, music addict</div>
+
+            <div class="social-links">
+                <a href="https://discordapp.com/users/921020185601769522" class="link">Discord</a>
+                <span class="separator">|</span>
+                <a href="https://www.roblox.com/users/301507890/profile" class="link">Roblox</a>
+                <span class="separator">|</span>
+                <a href="https://www.youtube.com/@fakerroblox" class="link">YouTube</a>
+            </div>
+
+            <div class="referral-section">
+                <div class="section-title">Projects</div>
+                <div class="referral-item">
+                    <a href="https://exb.sh" class="link">
+                        <img src="./public/exb.png" alt="exb"
+                            style="width: 16px; height: 16px; margin-right: 0.1px; vertical-align: middle;"
+                            draggable="false" oncontextmenu="return false;">
+                        exb
+                    </a>
+                </div>
+                <div class="referral-item">
+                    <a href="https://vidra.live" class="link">
+                        <img src="./public/vidra.png" alt="vidra"
+                            style="width: 16px; height: 16px; margin-right: 0.1px; vertical-align: middle;"
+                            draggable="false" oncontextmenu="return false;">
+                        vidra
+                    </a>
+                </div>
+            </div>
+
+
+
+            <audio id="audioPlayer" preload="auto">
+                <source src="./public/song.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+
+            <div class="image-container">
+                <div class="music-player-container">
+                    <div class="music-player">
+                        <button class="pause-btn" id="playPauseBtn">▶</button>
+                        <div class="player-display">
+                            <div class="track-info">
+                                <div class="track-name">AMBER WELTS</div>
+                                <div class="artist-name">SILK</div>
+                            </div>
+                            <div class="visualizer">
+                                <div class="bar"></div>
+                                <div class="bar"></div>
+                                <div class="bar"></div>
+                                <div class="bar"></div>
+                                <div class="bar"></div>
+                                <div class="bar"></div>
+                                <div class="bar"></div>
+                                <div class="bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <img src="./public/stacy.png" alt="Stacy" class="portfolio-image" draggable="false"
+                    oncontextmenu="return false;">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const audioPlayer = document.getElementById('audioPlayer');
+        audioPlayer.currentTime = 44;
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const visualizer = document.querySelector('.visualizer');
+
+        let isPlaying = false;
+
+        playPauseBtn.addEventListener('click', function () {
+            if (isPlaying) {
+                audioPlayer.pause();
+                playPauseBtn.textContent = '▶';
+                isPlaying = false;
+                visualizer.classList.remove('playing');
+            } else {
+                audioPlayer.play();
+                playPauseBtn.textContent = '⏸';
+                isPlaying = true;
+                visualizer.classList.add('playing');
+            }
+        });
+
+        audioPlayer.addEventListener('ended', function () {
+            playPauseBtn.textContent = '▶';
+            isPlaying = false;
+            visualizer.classList.remove('playing');
+        });
+
+        audioPlayer.addEventListener('pause', function () {
+            playPauseBtn.textContent = '▶';
+            isPlaying = false;
+            visualizer.classList.remove('playing');
+        });
+
+        audioPlayer.addEventListener('play', function () {
+            playPauseBtn.textContent = '⏸';
+            isPlaying = true;
+            visualizer.classList.add('playing');
+        });
+    </script>
+</body>
+
+</html>
